@@ -22,7 +22,7 @@ public class EventoServiceImpl implements EventoService{
 
     public EventoGastronomico crearEvento() {
 
-        EventoGastronomico evento_nuevo = new EventoGastronomico();
+        EventoGastronomico eventoNuevo = new EventoGastronomico();
 
         //asiganamos chef a cargo
 
@@ -39,7 +39,7 @@ public class EventoServiceImpl implements EventoService{
             if (UUID.fromString(input).equals(chef.getId())){
                 condicion = Boolean.TRUE;
 
-                evento_nuevo.setChefAsignado(chef);
+                eventoNuevo.setChefAsignado(chef);
 
             }
         }
@@ -49,55 +49,53 @@ public class EventoServiceImpl implements EventoService{
         }
 
         //Asigno un ID aleatorio al evento nuevo
-        evento_nuevo.setId(UUID.randomUUID());
+        eventoNuevo.setId(UUID.randomUUID());
 
         //Asignamos el nombre del evento nuevo
 
         System.out.println("Ingrese el nombre del evento");
-
         String nombre = sc.nextLine();
-        sc.nextLine();
-
-        evento_nuevo.setNombre(nombre);
+        eventoNuevo.setNombre(nombre);
 
         //Asiganmos la descripción
 
         System.out.println("Ingrese la descripción");
-
         String descripcion = sc.nextLine();
-        sc.nextLine();
-
-        evento_nuevo.setDescripcion(descripcion);
+        eventoNuevo.setDescripcion(descripcion);
 
         //Asignamos fecha y hora
 
         System.out.println("Ingrese año del evento");
-        int ano_de_evento = sc.nextInt();
+        int anoEvento = sc.nextInt();
+        sc.nextLine();
 
         System.out.println("Ingrese mes del evento");
-        int mes_de_evento = sc.nextInt();
+        int mesEvento = sc.nextInt();
+        sc.nextLine();
 
         System.out.println("Ingrese día del evento");
-        int dia_de_vento = sc.nextInt();
+        int diaEvento = sc.nextInt();
+        sc.nextLine();
 
         System.out.println("Ingrese horas del evento");
-        int hora_de_evento = sc.nextInt();
+        int horaEvento = sc.nextInt();
+        sc.nextLine();
 
         System.out.println("Ingrese minutos del evento");
-        int minutos_de_evento = sc.nextInt();
+        int minutosEvento = sc.nextInt();
+        sc.nextLine();
 
-        LocalDateTime fechayhora = LocalDateTime.of(ano_de_evento, mes_de_evento, dia_de_vento, hora_de_evento, minutos_de_evento);
+        LocalDateTime fechaHora = LocalDateTime.of(anoEvento, mesEvento, diaEvento, horaEvento, minutosEvento);
 
-        evento_nuevo.setHorario(fechayhora);
+        eventoNuevo.setHorario(fechaHora);
 
         //Asignamos ubicación
 
         System.out.println("Ingrese la ubicación del evento");
 
         String ubicacion = sc.nextLine();
-        sc.nextLine();
 
-        evento_nuevo.setUbicacion(ubicacion);
+        eventoNuevo.setUbicacion(ubicacion);
 
         //Asiganmos la capacidad
 
@@ -106,18 +104,18 @@ public class EventoServiceImpl implements EventoService{
         int capacidad = sc.nextInt();
         sc.nextLine();
 
-        evento_nuevo.setCapacidad(capacidad);
+        eventoNuevo.setCapacidad(capacidad);
 
-        organizador.getListaEventos().add(evento_nuevo);
+        organizador.getListaEventos().add(eventoNuevo);
 
         System.out.println();
         System.out.println("SE HA CREADO EL NUEVO EVENTO CORRECTAMENTE!");
         System.out.println("----------------------------------------------");
-        System.out.println(evento_nuevo.toString());
+        System.out.println(eventoNuevo.toString());
         System.out.println("----------------------------------------------");
         System.out.println();
 
-        return evento_nuevo;
+        return eventoNuevo;
     }
 
     public void listarEventosDeUnaFecha() {

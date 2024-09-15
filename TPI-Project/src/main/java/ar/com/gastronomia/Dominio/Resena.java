@@ -69,13 +69,12 @@ public class Resena {
         StringBuilder builder = new StringBuilder();
 
         return builder
-                .append("-----------------------------------------")
                 .append("ID: ")
                 .append(this.getId()).append("\n")
-                .append("Reseñador ")
+                .append("Reseñador: ")
                 .append(this.getReferenciaParticipante().getNombre()).append(" ")
                 .append(this.getReferenciaParticipante().getApellido()).append("\n")
-                .append("Evento:")
+                .append("Evento: ")
                 .append(this.getReferenciaEvento().getNombre()).append("\n")
                 .append("Comentario: ")
                 .append(this.getComentario())

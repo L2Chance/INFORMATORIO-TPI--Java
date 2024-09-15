@@ -1,17 +1,3 @@
-//Correcciones:
-/*
-
-- Corregidos los nombres de parametros para ajustarse a las
-normas de escritura de atributos
-
-    chef_a_cargo -> chefAsignado
-    lista_de_participantes -> listaParticipantes
-
-- Modificaciones correspondientes en Getters y Setters.
-
-*/
-
-
 package ar.com.gastronomia.Dominio;
 
 import java.time.LocalDateTime;

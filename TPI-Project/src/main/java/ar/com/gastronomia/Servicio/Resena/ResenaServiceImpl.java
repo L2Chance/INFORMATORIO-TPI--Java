@@ -17,43 +17,42 @@ public class ResenaServiceImpl implements ResenaService {
 
     public void hacerResena() {
 
-        Resena nueva_resena = new Resena();
+        Resena nuevaResena = new Resena();
         boolean existeElParticipante = Boolean.FALSE;
         boolean existeElEvento = Boolean.FALSE;
 
-        nueva_resena.setId(UUID.randomUUID());
+        nuevaResena.setId(UUID.randomUUID());
 
         System.out.println("Ingrese su ID");
         String idResenador = scanner.nextLine();
-        scanner.nextLine();
 
         System.out.println("Ingrese el ID del evento que quiere reseñar");
         String idEvento = scanner.nextLine();
-        scanner.nextLine();
 
         System.out.println("Ingrese la calificación");
         System.out.println("1. UNO - 2. DOS - 3. TRES - 4. CUATRO - 5. CINCO");
 
         int calificacion = scanner.nextInt();
+        scanner.nextLine();
 
         switch (calificacion){
             case 1:
-                nueva_resena.setCalificacion(CalificacionEnum.UNO);
+                nuevaResena.setCalificacion(CalificacionEnum.UNO);
                 break;
             case 2:
-                nueva_resena.setCalificacion(CalificacionEnum.DOS);
+                nuevaResena.setCalificacion(CalificacionEnum.DOS);
                 break;
             case 3:
-                nueva_resena.setCalificacion(CalificacionEnum.TRES);
+                nuevaResena.setCalificacion(CalificacionEnum.TRES);
                 break;
             case 4:
-                nueva_resena.setCalificacion(CalificacionEnum.CUATRO);
+                nuevaResena.setCalificacion(CalificacionEnum.CUATRO);
                 break;
             case 5:
-                nueva_resena.setCalificacion(CalificacionEnum.CINCO);
+                nuevaResena.setCalificacion(CalificacionEnum.CINCO);
                 break;
             default:
-                nueva_resena.setCalificacion((null));
+                nuevaResena.setCalificacion((null));
         }
 
         for (Participante participante : organizador.getListaParticipantes()) {
@@ -63,8 +62,8 @@ public class ResenaServiceImpl implements ResenaService {
                 for (EventoGastronomico evento : organizador.getListaEventos()) {
                     if ((UUID.fromString(idEvento).equals(evento.getId()))) {
                         existeElEvento = Boolean.TRUE;
-                        nueva_resena.setReferenciaParticipante(participante);
-                        nueva_resena.setReferenciaEvento(evento);
+                        nuevaResena.setReferenciaParticipante(participante);
+                        nuevaResena.setReferenciaEvento(evento);
 
                     }
                     break;
@@ -84,14 +83,13 @@ public class ResenaServiceImpl implements ResenaService {
         System.out.println("Ingrese el comentario que quiera dejar");
 
         String comentario = scanner.nextLine();
-        scanner.nextLine();
 
-        nueva_resena.setComentario(comentario);
+        nuevaResena.setComentario(comentario);
 
         System.out.println();
         System.out.println("RESEÑA CREADAD CON EXITO!");
         System.out.println("-------------------------------");
-        System.out.println(nueva_resena.toString());
+        System.out.println(nuevaResena.toString());
         System.out.println("-------------------------------");
         System.out.println();
 

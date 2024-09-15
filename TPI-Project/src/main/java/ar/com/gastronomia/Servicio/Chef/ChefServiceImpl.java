@@ -17,21 +17,21 @@ public class ChefServiceImpl implements ChefService {
     }
 
     public Chef agregarChef() {
-        Chef nuevo_chef = new Chef();
+        Chef nuevoChef = new Chef();
 
         //Asigno un ID aleatorio al evento nuevo
-        nuevo_chef.setId(UUID.randomUUID());
+        nuevoChef.setId(UUID.randomUUID());
 
         //Asignando nombre
 
         System.out.println("Ingrese nombre");
         String nombre = sc.nextLine();
 
-        nuevo_chef.setNombre(nombre);
+        nuevoChef.setNombre(nombre);
 
         System.out.println("Ingrese apellido");
         String apellido = sc.nextLine();
-        nuevo_chef.setApellido(apellido);
+        nuevoChef.setApellido(apellido);
 
         //Asignamos especialidad
 
@@ -39,42 +39,42 @@ public class ChefServiceImpl implements ChefService {
 
         String especialidad = sc.nextLine();
 
-        nuevo_chef.setEspecialidad(especialidad);
+        nuevoChef.setEspecialidad(especialidad);
 
-        organizador.getListaChefs().add(nuevo_chef);
+        organizador.getListaChefs().add(nuevoChef);
 
 
         System.out.println();
-        System.out.println("SE HA CREADO EL PERFIL EL EVENTO CORRECTAMENTE!");
+        System.out.println("SE HA CREADO EL PERFIL DEL CHEF CORRECTAMENTE!");
         System.out.println("----------------------------------------------");
-        System.out.println(nuevo_chef.toString());
+        System.out.println(nuevoChef.toString());
         System.out.println("----------------------------------------------");
         System.out.println();
 
-        return nuevo_chef;
+        return nuevoChef;
     }
 
     public void asignarEventoAChef(){
 
         System.out.println("Ingrese el ID del chef");
-        String id_chef = sc.nextLine();
+        String idChef = sc.nextLine();
 
         System.out.println("Ingrese el ID del evento a asignar");
-        String id_evento = sc.nextLine();
+        String idEvento = sc.nextLine();
 
-        boolean existe_el_chef = Boolean.FALSE;
-        boolean existe_el_evento = Boolean.FALSE;
+        boolean existeChef = Boolean.FALSE;
+        boolean existeEvento = Boolean.FALSE;
 
         /*En este código buscamos entre todos los chefs el correcto, cuando lo encontramos
         * buscamos entre todos los eventos el correcto y finalmente lo asignamos */
 
         for (Chef chef: organizador.getListaChefs()){
-            if (chef.getId().equals(UUID.fromString(id_chef))){
-                existe_el_chef = Boolean.TRUE;
+            if (chef.getId().equals(UUID.fromString(idChef))){
+                existeChef = Boolean.TRUE;
 
                 for (EventoGastronomico evento : organizador.getListaEventos()){
-                    if (evento.getId().equals(UUID.fromString(id_evento))){
-                        existe_el_evento = Boolean.TRUE;
+                    if (evento.getId().equals(UUID.fromString(idEvento))){
+                        existeEvento = Boolean.TRUE;
                         evento.setChefAsignado(chef);
                         break;
                     }
@@ -84,11 +84,11 @@ public class ChefServiceImpl implements ChefService {
             }
         }
 
-        if (!existe_el_chef){
+        if (!existeChef){
             throw new NoSuchElementException("ERROR: No existe el chef!");
         }
 
-        if (!existe_el_evento) {
+        if (!existeEvento) {
             throw new NoSuchElementException("ERROR: No existe el evento!");
         }
         else {

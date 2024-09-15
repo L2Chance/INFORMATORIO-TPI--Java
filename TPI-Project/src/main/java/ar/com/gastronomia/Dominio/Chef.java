@@ -1,12 +1,3 @@
-//Correcciones:
-/*
-
-- Modificados algunos nombres de parametros para mayor claridad.
-
-    eventos -> listaEventos
-
-*/
-
 package ar.com.gastronomia.Dominio;
 
 import java.util.ArrayList;

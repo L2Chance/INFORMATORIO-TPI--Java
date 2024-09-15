@@ -29,18 +29,18 @@ public class App {
         EventoService eventoService = new EventoServiceImpl(organizadorEvento);
         OrganizadorService organizadorService = new OrganizadorServiceImpl(organizadorEvento);
         ParticipanteService participanteService = new ParticipanteServiceImpl(organizadorEvento);
-        ChefService chef_service = new ChefServiceImpl(organizadorEvento);
+        ChefService chefService = new ChefServiceImpl(organizadorEvento);
         ResenaService resenaService = new ResenaServiceImpl(organizadorEvento);
-        MenuService menu_service = new MenuServiceImpl(organizadorService, participanteService, eventoService, chef_service, resenaService);
+        MenuService menuService = new MenuServiceImpl(organizadorService, participanteService, eventoService, chefService, resenaService);
 
-        menu_service.mostrarMenu();
+        menuService.mostrarMenu();
 
         eventoService.cerrarWriter();
 
         resenaService.cerrarScanner();
-        chef_service.cerrarScanner();
+        chefService.cerrarScanner();
         eventoService.cerrarScanner();
-        menu_service.cerrarScanner();
+        menuService.cerrarScanner();
         participanteService.cerrarScanner();
 
     }

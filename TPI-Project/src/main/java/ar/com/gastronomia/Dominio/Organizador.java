@@ -1,15 +1,3 @@
-//Correcciones:
-/*
-
-- Corregidos los nombres de parametros para ajustarse a las
-normas de escritura de atributos
-
-    eventos -> listaEventos
-    lista_de_chefs -> listaChefs
-    participantes -> listaParticipantes
-
-*/
-
 package ar.com.gastronomia.Dominio;
 
 import java.util.ArrayList;

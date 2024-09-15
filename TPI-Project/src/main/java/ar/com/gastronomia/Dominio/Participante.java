@@ -1,24 +1,3 @@
-//Correcciones:
-/*
-
-- Corregido los nombres de parametros para ajustarse a las
-normas de escritura de atributos
-
-    id_participante -> id
-    eventos_participados -> eventosParticipados
-
-- Separación del atributo (mal escrito) nombreyapellido por
-
-    String nombre
-    String apellido
-
-- Modificado el atributo Intereses
-para permitir más de un interes posible.
-
-    String intereses -> List<String> intereses
-
-*/
-
 package ar.com.gastronomia.Dominio;
 
 import java.util.ArrayList;
