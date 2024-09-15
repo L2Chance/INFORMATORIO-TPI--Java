@@ -1,41 +1,42 @@
 package ar.com.gastronomia.Servicio.Menu;
 
-import ar.com.gastronomia.Dominio.Organizador;
 import ar.com.gastronomia.Servicio.Chef.ChefService;
 import ar.com.gastronomia.Servicio.Evento.EventoService;
 import ar.com.gastronomia.Servicio.Organizador.*;
-import ar.com.gastronomia.App;
 import ar.com.gastronomia.Servicio.Participante.ParticipanteService;
+import ar.com.gastronomia.Servicio.Resena.ResenaService;
 
 import java.io.IOException;
-import java.util.UUID;
 import java.util.Scanner;
 
-public class MenuImplement implements MenuService{
-    private OrganizadorService organizador_service;
-    private ParticipanteService participante_service;
-    private EventoService evento_service;
-    private ChefService chef_service;
+public class MenuServiceImpl implements MenuService{
+    Scanner scanner = new Scanner(System.in);
+    private OrganizadorService organizadorService;
+    private ParticipanteService participanteService;
+    private EventoService eventoService;
+    private ChefService ChefService;
+    private ResenaService resenaService;
 
-    public MenuImplement(OrganizadorService organizador_service, ParticipanteService participante_service, EventoService evento_service, ChefService chef_service) {
-        this.organizador_service = organizador_service;
-        this.participante_service = participante_service;
-        this.evento_service = evento_service;
-        this.chef_service = chef_service;
+    public MenuServiceImpl(OrganizadorService organizadorService, ParticipanteService participanteService, EventoService eventoService, ChefService ChefService, ResenaService resenaService) {
+        this.organizadorService = organizadorService;
+        this.participanteService = participanteService;
+        this.eventoService = eventoService;
+        this.ChefService = ChefService;
+        this.resenaService = resenaService;
     }
 
-    public void mostrar_menu(Scanner scanner) throws IOException {
+    public void mostrarMenu() throws IOException {
         int option = 0;
 
         do{
             System.out.println("Ingrese su opción: ");
             System.out.println("----------------------");
-            System.out.println("1. Crear evento nuevo");
+            System.out.println("1. Crear evento nuevo (Requiere ID de chef)");
             System.out.println("2. Crear nuevo participante");
-            System.out.println("3. Inscribirse a un evento");
-            System.out.println("4. Reseñar evento");
+            System.out.println("3. Inscribirse a un evento (Requiere ID de evento e ID de participante)");
+            System.out.println("4. Reseñar evento (Requiere ID de participante e ID de participante)");
             System.out.println("5. Crear nuevo chef");
-            System.out.println("6. Asignar un evento existente a un chef");
+            System.out.println("6. Asignar un evento existente a un chef (Requiere ID de chef e ID de evento)");
             System.out.println("7. Listar eventos disponibles a partir de una fecha");
             System.out.println("8. Exportar archivo");
             System.out.println("9. Listar participantes");
@@ -54,56 +55,56 @@ public class MenuImplement implements MenuService{
             switch (option){
                 case 1:
 
-                    organizador_service.crearevento();
+                    eventoService.crearEvento();
                     break;
 
                 case 2:
 
-                    participante_service.participante_nuevo(scanner);
+                    participanteService.participanteNuevo();
                     break;
 
                 case 3:
 
-                    participante_service.inscribirse_a_evento(scanner);
+                    participanteService.inscribirseEvento();
                     break;
 
                 case 4:
 
-                    participante_service.hacer_resena(scanner);
+                    resenaService.hacerResena();
                     break;
 
                 case 5:
 
-                    organizador_service.agregarchef(scanner);
+                    ChefService.agregarChef();
                     break;
 
                 case 6:
 
-                    organizador_service.asignar_evento_a_chef();
+                    ChefService.asignarEventoAChef();
                     break;
 
                 case 7:
 
-                    evento_service.listar_eventos(scanner);
+                    eventoService.listarEventosDeUnaFecha();
                     break;
 
                 case 8:
 
-                    evento_service.exportar_archivo(scanner);
+                    eventoService.exportarArchivo();
                     break;
 
                 case 9:
 
-                    participante_service.listado();
+                    participanteService.listadoParticipante();
                     break;
 
                 case 10:
-                    chef_service.listarchefs();
+                    ChefService.listarChefs();
                     break;
 
                 case 11:
 
-                    evento_service.listado();
+                    eventoService.listarEventos();
                     break;
 
                 case 12:
@@ -122,5 +123,9 @@ public class MenuImplement implements MenuService{
 
         System.out.println("Aplicación finalizada");
 
+    }
+
+    public void cerrarScanner(){
+        scanner.close();
     }
 }

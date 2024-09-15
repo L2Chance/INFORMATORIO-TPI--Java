@@ -1,3 +1,17 @@
+//Correcciones:
+/*
+
+- Corregidos los nombres de parametros para ajustarse a las
+normas de escritura de atributos
+
+    chef_a_cargo -> chefAsignado
+    lista_de_participantes -> listaParticipantes
+
+- Modificaciones correspondientes en Getters y Setters.
+
+*/
+
+
 package ar.com.gastronomia.Dominio;
 
 import java.time.LocalDateTime;
@@ -12,29 +26,22 @@ public class EventoGastronomico {
     private LocalDateTime horario;
     private String ubicacion;
     private int capacidad;
-    private Chef chef_a_cargo;
-    private List<Participante> lista_de_participantes = new ArrayList<>();
+    private Chef chefAsignado;
+    private List<Participante> listaParticipantes = new ArrayList<>();
 
     public EventoGastronomico(){
 
     }
 
-    public EventoGastronomico(UUID id, String nombre, String descripcion, LocalDateTime horario, String ubicacion, int capacidad, Chef chef_a_cargo) {
-        this.id = id;
+    public EventoGastronomico(String nombre, UUID id, String descripcion, LocalDateTime horario, String ubicacion, int capacidad, Chef chefAsignado, List<Participante> listaParticipantes) {
         this.nombre = nombre;
+        this.id = id;
         this.descripcion = descripcion;
         this.horario = horario;
         this.ubicacion = ubicacion;
         this.capacidad = capacidad;
-        this.chef_a_cargo = chef_a_cargo;
-    }
-
-    public List<Participante> getLista_de_participantes() {
-        return lista_de_participantes;
-    }
-
-    public void setLista_de_participantes(List<Participante> lista_de_participantes) {
-        this.lista_de_participantes = lista_de_participantes;
+        this.chefAsignado = chefAsignado;
+        this.listaParticipantes = listaParticipantes;
     }
 
     public UUID getId() {
@@ -85,12 +92,20 @@ public class EventoGastronomico {
         this.capacidad = capacidad;
     }
 
-    public Chef getChef_a_cargo() {
-        return chef_a_cargo;
+    public Chef getChefAsignado() {
+        return chefAsignado;
     }
 
-    public void setChef_a_cargo(Chef chef_a_cargo) {
-        this.chef_a_cargo = chef_a_cargo;
+    public void setChefAsignado(Chef chefAsignado) {
+        this.chefAsignado = chefAsignado;
+    }
+
+    public List<Participante> getListaParticipantes() {
+        return listaParticipantes;
+    }
+
+    public void setListaParticipantes(List<Participante> listaParticipantes) {
+        this.listaParticipantes = listaParticipantes;
     }
 
     @Override
@@ -107,8 +122,7 @@ public class EventoGastronomico {
                     .append("Ubicación: ")
                     .append(this.getUbicacion()).append("\n")
                     .append("Chef a cargo: ")
-                    .append(this.getChef_a_cargo().getNombre()).append("\n")
-                    .append("-----------------------\n")
+                    .append(this.getChefAsignado().getNombre())
                     .toString();
 
     }

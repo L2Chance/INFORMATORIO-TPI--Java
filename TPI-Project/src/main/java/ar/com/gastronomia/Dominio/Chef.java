@@ -1,3 +1,12 @@
+//Correcciones:
+/*
+
+- Modificados algunos nombres de parametros para mayor claridad.
+
+    eventos -> listaEventos
+
+*/
+
 package ar.com.gastronomia.Dominio;
 
 import java.util.ArrayList;
@@ -7,18 +16,20 @@ import java.util.UUID;
 public class Chef {
     private UUID id;
     private String nombre;
+    private String apellido;
     private String especialidad;
-    private List<EventoGastronomico> eventos = new ArrayList<>();
+    private List<EventoGastronomico> listaEventos = new ArrayList<>();
 
     public Chef(){
 
     }
 
-    public Chef(UUID id, String nombre, String especialidad, List<EventoGastronomico> eventos) {
+    public Chef(UUID id, String nombre,String apellido, String especialidad, List<EventoGastronomico> listaEventos) {
         this.id = id;
         this.nombre = nombre;
+        this.apellido = apellido;
         this.especialidad = especialidad;
-        this.eventos = eventos;
+        this.listaEventos = listaEventos;
     }
 
     public UUID getId() {
@@ -37,6 +48,14 @@ public class Chef {
         this.nombre = nombre;
     }
 
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
     public String getEspecialidad() {
         return especialidad;
     }
@@ -45,12 +64,12 @@ public class Chef {
         this.especialidad = especialidad;
     }
 
-    public List<EventoGastronomico> getEventos() {
-        return eventos;
+    public List<EventoGastronomico> getListaEventos() {
+        return listaEventos;
     }
 
-    public void setEventos(List<EventoGastronomico> eventos) {
-        this.eventos = eventos;
+    public void setListaEventos(List<EventoGastronomico> listaEventos) {
+        this.listaEventos = listaEventos;
     }
 
     @Override
@@ -62,11 +81,11 @@ public class Chef {
                 .append(this.getId()).append("\n")
                 .append("Nombre: ")
                 .append(this.getNombre()).append("\n")
+                .append("Apellido: ")
+                .append(this.getApellido()).append("\n")
                 .append("Especialidad: ")
                 .append(this.getEspecialidad()).append("\n")
                 .append("Eventos")
-                .append(this.getEventos()).append("\n")
-                .append("----------------------------").toString();
-
+                .append(this.getListaEventos()).toString();
     }
 }

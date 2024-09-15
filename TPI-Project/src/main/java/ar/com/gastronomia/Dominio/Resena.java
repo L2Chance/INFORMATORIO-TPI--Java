@@ -5,9 +5,9 @@ import ar.com.gastronomia.Dominio.Enumeration.CalificacionEnum;
 import java.util.UUID;
 
 public class Resena {
-    private UUID id_resena;
-    private EventoGastronomico referencia_evento;
-    private Participante referencia_participante;
+    private UUID id;
+    private EventoGastronomico referenciaEvento;
+    private Participante referenciaParticipante;
     private CalificacionEnum calificacion;
     private String comentario;
 
@@ -15,36 +15,36 @@ public class Resena {
 
     }
 
-    public Resena(UUID id_resena, EventoGastronomico referencia_evento, Participante referencia_participante, String comentario, CalificacionEnum calificacion) {
-        this.id_resena = id_resena;
-        this.referencia_evento = referencia_evento;
-        this.referencia_participante = referencia_participante;
-        this.comentario = comentario;
+    public Resena(UUID id, EventoGastronomico referenciaEvento, Participante referenciaParticipante, CalificacionEnum calificacion, String comentario) {
+        this.id = id;
+        this.referenciaEvento = referenciaEvento;
+        this.referenciaParticipante = referenciaParticipante;
         this.calificacion = calificacion;
+        this.comentario = comentario;
     }
 
-    public UUID getId_resena() {
-        return id_resena;
+    public UUID getId() {
+        return id;
     }
 
-    public void setId_resena(UUID id_resena) {
-        this.id_resena = id_resena;
+    public void setId(UUID id) {
+        this.id = id;
     }
 
-    public EventoGastronomico getReferencia_evento() {
-        return referencia_evento;
+    public EventoGastronomico getReferenciaEvento() {
+        return referenciaEvento;
     }
 
-    public void setReferencia_evento(EventoGastronomico referencia_evento) {
-        this.referencia_evento = referencia_evento;
+    public void setReferenciaEvento(EventoGastronomico referenciaEvento) {
+        this.referenciaEvento = referenciaEvento;
     }
 
-    public Participante getReferencia_participante() {
-        return referencia_participante;
+    public Participante getReferenciaParticipante() {
+        return referenciaParticipante;
     }
 
-    public void setReferencia_participante(Participante referencia_participante) {
-        this.referencia_participante = referencia_participante;
+    public void setReferenciaParticipante(Participante referenciaParticipante) {
+        this.referenciaParticipante = referenciaParticipante;
     }
 
     public CalificacionEnum getCalificacion() {
@@ -71,14 +71,15 @@ public class Resena {
         return builder
                 .append("-----------------------------------------")
                 .append("ID: ")
-                .append(this.getId_resena()).append("\n")
+                .append(this.getId()).append("\n")
                 .append("Reseñador ")
-                .append(this.referencia_participante.getNombreyapellido()).append("\n")
+                .append(this.getReferenciaParticipante().getNombre()).append(" ")
+                .append(this.getReferenciaParticipante().getApellido()).append("\n")
                 .append("Evento:")
-                .append(this.getReferencia_evento().getNombre()).append("\n")
+                .append(this.getReferenciaEvento().getNombre()).append("\n")
                 .append("Comentario: ")
-                .append(this.getComentario()).append("\n")
-                .append("-----------------------------------------").toString();
+                .append(this.getComentario())
+                .toString();
 
     }
 }

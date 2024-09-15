@@ -1,44 +1,56 @@
+//Correcciones:
+/*
+
+- Corregidos los nombres de parametros para ajustarse a las
+normas de escritura de atributos
+
+    eventos -> listaEventos
+    lista_de_chefs -> listaChefs
+    participantes -> listaParticipantes
+
+*/
+
 package ar.com.gastronomia.Dominio;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Organizador {
-    private List<EventoGastronomico> eventos = new ArrayList<>();
-    private List<Chef> lista_de_chefs = new ArrayList<>();
-    private List<Participante> participantes = new ArrayList<>();
+    private List<EventoGastronomico> listaEventos = new ArrayList<>();
+    private List<Chef> listaChefs = new ArrayList<>();
+    private List<Participante> listaParticipantes = new ArrayList<>();
 
     public Organizador(){
 
     }
 
-    public Organizador(List<EventoGastronomico> eventos, List<Chef> lista_de_chefs, List<Participante> participantes) {
-        this.eventos = eventos;
-        this.lista_de_chefs = lista_de_chefs;
-        this.participantes = participantes;
+    public Organizador(List<EventoGastronomico> listaEventos, List<Chef> listaChefs, List<Participante> listaParticipantes) {
+        this.listaEventos = listaEventos;
+        this.listaChefs = listaChefs;
+        this.listaParticipantes = listaParticipantes;
     }
 
-    public List<EventoGastronomico> getEventos() {
-        return eventos;
+    public List<EventoGastronomico> getListaEventos() {
+        return listaEventos;
     }
 
-    public void setEventos(List<EventoGastronomico> eventos) {
-        this.eventos = eventos;
+    public void setListaEventos(List<EventoGastronomico> listaEventos) {
+        this.listaEventos = listaEventos;
     }
 
-    public List<Chef> getLista_de_chefs() {
-        return lista_de_chefs;
+    public List<Chef> getListaChefs() {
+        return listaChefs;
     }
 
-    public void setLista_de_chefs(List<Chef> lista_de_chefs) {
-        this.lista_de_chefs = lista_de_chefs;
+    public void setListaChefs(List<Chef> listaChefs) {
+        this.listaChefs = listaChefs;
     }
 
-    public List<Participante> getParticipantes() {
-        return participantes;
+    public List<Participante> getListaParticipantes() {
+        return listaParticipantes;
     }
 
-    public void setParticipantes(List<Participante> participantes) {
-        this.participantes = participantes;
+    public void setListaParticipantes(List<Participante> listaParticipantes) {
+        this.listaParticipantes = listaParticipantes;
     }
 }
